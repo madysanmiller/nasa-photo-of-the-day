@@ -2,6 +2,11 @@ import React, {useState, useEffect} from "react";
 import axios from 'axios';
 import "./App.css";
 import NasaPhotos from './Components/NasaPhotos';
+import styled from 'styled-components'
+
+const AppDiv = styled.div`
+  font-family: sans-serif;
+  text-align: center;`
 
 const dummyData = {
   date: "2023-04-19",
@@ -22,14 +27,17 @@ function App() {
       .catch(err => console.error(err))
   },[])
   return (
-    <div className="App">
+    <AppDiv>
+    {/* // <div className="App"> */}
       {/* <p>
         Read through the instructions in the README.md file to build your NASA
         app! Have fun <span role="img" aria-label='go!'>🚀</span>!
       </p> */}
       <NasaPhotos photo={data} />
-    </div>
+    </AppDiv>
   );
 }
 
+
 export default App;
+

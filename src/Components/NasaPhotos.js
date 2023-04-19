@@ -1,5 +1,27 @@
 import React from "react";
 
+import styled, { keyframes } from 'styled-components'
+
+const PhotoWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    flex-direction: column;`
+
+const kf = keyframes`
+0% {
+    opacity: 0;
+    max-width: 200%;
+}
+100% {
+    opacity: 1;
+    max-width: 60%;
+}`
+
+const StyledImg = styled.img`
+    max-width: 60%;
+    border-radius: 15px;
+    animation: ${kf} 0.5s ease-in-out backwards;`
+
 
 const dummyData = {
     date: "2023-04-19",
@@ -10,13 +32,14 @@ const dummyData = {
 
 const NasaPhotos = (props) => {
     return (
-<div className="nasa-photo-wrapper">
+        <PhotoWrapper>
+{/* <div className="nasa-photo-wrapper"> */}
     <h3>{props.photo.title}</h3>
     <p>{props.photo.date}</p>
-    <img src={props.photo.hdurl} />
+    <StyledImg  src={props.photo.hdurl} />
     <p>{props.photo.explanation}</p>
-</div>
-
+{/* </div> */}
+</PhotoWrapper>
     )
 }
 
